@@ -6,13 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".view.profile.ProfileFragment">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".15" />
-
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/iv_image_profile"
         imageUrl="@{userInfo!= null?userInfo.userImage:``}"
@@ -22,9 +15,9 @@
         android:src="@drawable/ic_launcher_background"
         app:civ_border_color="@color/colorPrimary"
         app:civ_border_width="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline8"
+        android:layout_marginTop="@dimen/_30sdp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline8" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView10"
