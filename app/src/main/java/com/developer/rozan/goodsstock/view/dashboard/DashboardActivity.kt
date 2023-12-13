@@ -4,19 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavController
-import androidx.navigation.NavDestination
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.setupWithNavController
 import com.developer.rozan.goodsstock.R
-import com.developer.rozan.goodsstock.util.extention.hideBottomNav
-import com.developer.rozan.goodsstock.util.extention.showBottomNav
 import com.developer.rozan.goodsstock.view.home.HomeFragment
 import com.developer.rozan.goodsstock.view.profile.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class DashboardActivity : AppCompatActivity(), NavController.OnDestinationChangedListener {
+class DashboardActivity : AppCompatActivity() {
 
     private lateinit var bottomNavigationView: BottomNavigationView
 
@@ -26,32 +19,27 @@ class DashboardActivity : AppCompatActivity(), NavController.OnDestinationChange
 
         bottomNavigationView = findViewById(R.id.bottom_navigation_view)
 
-        initBottomNavigationView()
-    }
+        bottomNavigationView.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.navigation_home -> {
+                    replaceFragment(HomeFragment())
+                    true
+                }
+                R.id.navigation_profile -> {
+                    replaceFragment(ProfileFragment())
+                    true
+                }
 
-    private fun initBottomNavigationView() {
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val navController = navHostFragment.findNavController()
-        navController.addOnDestinationChangedListener(this)
-        bottomNavigationView.setupWithNavController(navController)
-    }
-
-    override fun onDestinationChanged(
-        controller: NavController,
-        destination: NavDestination,
-        arguments: Bundle?
-    ) {
-        when (destination.id) {
-            R.id.navigation_home, R.id.navigation_profile -> showBottomNav()
-
-            else -> hideBottomNav()
+                else -> {
+                    Toast.makeText(this, "Error Pokoknya", Toast.LENGTH_SHORT).show()
+                    false
+                }
+            }
         }
+        replaceFragment(HomeFragment())
     }
 
-    private fun loadFragment(fragment: Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.nav_host_fragment, fragment)
-        transaction.commit()
+    private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit()
     }
 }
