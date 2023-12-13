@@ -2,45 +2,44 @@ package com.example.goodstcok.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.*
 import androidx.navigation.fragment.*
-import androidx.navigation.ui.setupWithNavController
 import com.example.goodstcok.R
 import com.example.goodstcok.utils.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
-class DashboardActivity : AppCompatActivity(), NavController.OnDestinationChangedListener {
+class DashboardActivity : AppCompatActivity() {
     private lateinit var bottomNavigationView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
-    }
-    private fun initBottomNavigationView() {
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val navController = navHostFragment.findNavController()
-        navController.addOnDestinationChangedListener(this)
-        bottomNavigationView.setupWithNavController(navController)
-    }
 
-    override fun onDestinationChanged(
-        controller: NavController,
-        destination: NavDestination,
-        arguments: Bundle?
-    ) {
-        when (destination.id) {
-            R.id.navigation_home, R.id.navigation_profile -> showBottomNav()
+        bottomNavigationView = findViewById(R.id.bottom_navigation_view)
 
-            else -> hideBottomNav()
+        bottomNavigationView.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.navigation_home -> {
+                    replaceFragment(HomeFragment())
+                    true
+                }
+                R.id.navigation_profile -> {
+                    replaceFragment(ProfileFragment())
+                    true
+                }
+
+                else -> {
+                    Toast.makeText(this, "Error Pokoknya", Toast.LENGTH_SHORT).show()
+                    false
+                }
+            }
         }
     }
 
-    private fun loadFragment(fragment: Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.nav_host_fragment, fragment)
-        transaction.commit()
+    private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit()
     }
 }

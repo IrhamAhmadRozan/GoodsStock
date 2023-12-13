@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".view.DashboardActivity">
 
-    <fragment
-        android:id="@+id/nav_host_fragment"
+    <FrameLayout
+        android:id="@+id/frame_layout"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -24,7 +24,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
-        android:background="?android:attr/windowBackground"
+        android:background="@color/colorPrimary"
+        app:itemActiveIndicatorStyle="@style/App.Custom.Indicatior"
         app:itemIconTint="@color/bottom_nav_color"
         app:itemTextColor="@color/bottom_nav_color"
         app:labelVisibilityMode="labeled"
