@@ -56,7 +56,7 @@ class HomeFragment : Fragment(), RecyclerViewClickListener {
     }
 
     private fun getDataCategoryGagal(e: String) {
-        Toast.makeText(activity, "Error : " + e, Toast.LENGTH_SHORT).show()
+        Toast.makeText(activity, "Error : $e", Toast.LENGTH_SHORT).show()
     }
 
     override fun onItemClicked(view: View, category: Category) {

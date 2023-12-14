@@ -2,6 +2,7 @@ package com.example.goodstcok.data.api
 
 import com.example.goodstcok.data.api.entity.BaseResponse
 import com.example.goodstcok.data.api.entity.response.LoginResponse
+import com.example.goodstcok.data.api.entity.response.LogoutResponse
 import com.example.goodstcok.data.local.entity.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -61,6 +62,24 @@ class RemoteService {
             }
 
             override fun onFailure(call: Call<List<Category>>, t: Throwable) {
+                callback.onError(t.message ?: "An error occurred")
+            }
+        })
+    }
+
+    fun logoutUser(token: String, callback: BaseResponse<String>) {
+        val call: Call<LoginResponse> = service.postLogout(token)
+
+        call.enqueue(object: Callback<LoginResponse> {
+            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                if (response.isSuccessful) {
+                    callback.onSuccess("Logout Berhasil")
+                } else {
+                    callback.onError("Logout Gagal")
+                }
+            }
+
+            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 callback.onError(t.message ?: "An error occurred")
             }
         })

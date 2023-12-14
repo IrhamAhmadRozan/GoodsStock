@@ -55,31 +55,30 @@ class LoginActivity : AppCompatActivity() {
         remoteService.loginUser(username, password, object : BaseResponse<String> {
             override fun onSuccess(response: String) {
                 try {
-                   loginBerhasil(response)
+                    logoutBerhasil(response)
                 } catch (e: JSONException) {
-                    loginGagal(e)
+                    logoutGagal(e)
                 }
             }
 
             override fun onError(error: String) {
-                loginGagal(error)
+                logoutGagal(error)
             }
 
         })
     }
 
-    private fun loginBerhasil(token: String) {
+    private fun logoutBerhasil(token: String) {
         Toast.makeText(this, "Berhasil Login!", Toast.LENGTH_SHORT).show()
-        UserPref.init.loggedIn()
-        UserPref.init.saveToken(token)
+        UserPref.init.logout()
         startActivity(Intent(this, DashboardActivity::class.java))
     }
 
-    private fun loginGagal(e: JSONException) {
+    private fun logoutGagal(e: JSONException) {
         Toast.makeText(this, "Error : " + e.message, Toast.LENGTH_SHORT).show()
     }
 
-    private fun loginGagal(e: String) {
+    private fun logoutGagal(e: String) {
         Toast.makeText(this, "Error : " + e, Toast.LENGTH_SHORT).show()
     }
 }
