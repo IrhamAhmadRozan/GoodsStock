@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.DetailProductActivity">
+
+    <include
+        android:id="@+id/toolbar_back"
+        layout="@layout/layout_toolbar_back" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar_back">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/rl_image_product_background"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorGrey">
+
+                <ImageView
+                    android:id="@+id/specificProductImage"
+                    android:layout_width="@dimen/_180sdp"
+                    android:layout_height="@dimen/_180sdp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:elevation="@dimen/_8sdp"
+                    android:src="@drawable/ic_launcher_foreground" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_detail_product_name"
+                style="@style/FontTitleBlack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl_image_product_background"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:text="Product Name"
+                android:textSize="@dimen/_20ssp" />
+
+            <TextView
+                android:id="@+id/tv_detail_product_price"
+                style="@style/FontTitleBlackBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_detail_product_name"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:text="Rp200.000"
+                android:textSize="@dimen/_17ssp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_detail_product_quantity"
+                style="@style/FontBodyTextBlack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_detail_product_name"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/_9sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:text="2pcs, Price"
+                android:textColor="@color/colorLightBlack" />
+
+            <TextView
+                android:id="@+id/tv_title_detail_product_decription"
+                style="@style/FontBodyTextBlackBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_detail_product_price"
+                android:layout_margin="@dimen/_8sdp"
+                android:text="Product Description" />
+
+            <TextView
+                android:id="@+id/tv_detail_product_decription"
+                style="@style/FontSmallTextBlack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_title_detail_product_decription"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                android:textColor="@color/colorLightBlack"
+                android:textSize="@dimen/_10sdp" />
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

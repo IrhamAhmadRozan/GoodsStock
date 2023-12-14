@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.*
 import androidx.navigation.fragment.*
 import com.example.goodstcok.R
+import com.example.goodstcok.data.local.sharedpref.UserPref
 import com.example.goodstcok.utils.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -17,6 +18,8 @@ class DashboardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
+
+        UserPref.init = UserPref(this)
 
         bottomNavigationView = findViewById(R.id.bottom_navigation_view)
 
@@ -37,6 +40,7 @@ class DashboardActivity : AppCompatActivity() {
                 }
             }
         }
+        replaceFragment(HomeFragment())
     }
 
     private fun replaceFragment(fragment: Fragment) {
