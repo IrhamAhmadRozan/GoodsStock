@@ -26,5 +26,5 @@ interface Service {
 
     @FormUrlEncoded
     @POST("/api/logout")
-    fun postLogout(@Header("Authorization") token: String): Call<LogoutResponse>
+    fun postLogout(@Header("Authorization") token: String): Call<LoginResponse>
 }
