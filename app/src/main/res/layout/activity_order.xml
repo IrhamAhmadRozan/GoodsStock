@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OrderActivity">
+
+    //Order Form Text
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_orderform"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter"
+            android:text="Order Form"
+            android:textColor="@color/colorWhite"
+            android:textSize="30dp" />
+
+    </LinearLayout>
+
+
+
+    //EditText For Name
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tf_name"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:layout_marginTop="@dimen/_130sdp"
+        android:layout_marginEnd="@dimen/_6sdp"
+        android:hint="Name"
+        android:textColorHint="@color/colorWhite"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/colorPrimary"
+        app:endIconTintMode="src_atop"
+        app:startIconDrawable="@drawable/ic_account"
+        app:startIconTint="@color/colorPrimary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            style="@style/FontBodyDarkGrey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    //Edit Text For Price
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tf_price"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:layout_marginTop="@dimen/_190sdp"
+        android:layout_marginEnd="@dimen/_6sdp"
+        android:hint="Price"
+        android:textColorHint="@color/colorWhite"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/colorPrimary"
+        app:endIconTintMode="src_atop"
+        app:startIconDrawable="@drawable/ic_currency"
+        app:startIconTint="@color/colorPrimary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            style="@style/FontBodyDarkGrey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    //Edit Text For Stock
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tf_stock"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="@dimen/_6sdp"
+        android:layout_marginTop="@dimen/_250sdp"
+        android:layout_marginEnd="@dimen/_6sdp"
+        android:hint="Stock"
+        android:textColorHint="@color/colorWhite"
+        app:endIconMode="clear_text"
+        app:endIconTint="@color/colorPrimary"
+        app:endIconTintMode="src_atop"
+        app:startIconDrawable="@drawable/ic_addstock"
+        app:startIconTint="@color/colorPrimary">
+
+        <com.google.android.material.textfield.TextInputEditText
+            style="@style/FontBodyDarkGrey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>
