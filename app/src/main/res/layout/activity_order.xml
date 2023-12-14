@@ -5,109 +5,129 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OrderActivity">
+    tools:context=".view.OrderActivity">
 
-    //Order Form Text
-    <LinearLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/tv_orderform"
+            android:id="@+id/tv_orderforms"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="50dp"
             android:fontFamily="@font/inter"
-            android:text="Order Form"
-            android:textColor="@color/colorWhite"
-            android:textSize="30dp" />
+            android:text="Checkout"
+            android:textSize="30dp"
+            android:textStyle="bold" />
 
-    </LinearLayout>
+        //Divider
+        <View
+            android:id="@+id/divider_line"
+            android:layout_width="370dp"
+            android:layout_height="1dp"
+            android:layout_below="@id/tv_orderforms"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/black" />
 
-
-
-    //EditText For Name
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tf_name"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginStart="@dimen/_6sdp"
-        android:layout_marginTop="@dimen/_130sdp"
-        android:layout_marginEnd="@dimen/_6sdp"
-        android:hint="Name"
-        android:textColorHint="@color/colorWhite"
-        app:endIconMode="clear_text"
-        app:endIconTint="@color/colorPrimary"
-        app:endIconTintMode="src_atop"
-        app:startIconDrawable="@drawable/ic_account"
-        app:startIconTint="@color/colorPrimary">
-
-        <com.google.android.material.textfield.TextInputEditText
-            style="@style/FontBodyDarkGrey"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tv_orderdetails"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="text" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="120dp"
+            android:fontFamily="@font/inter"
+            android:text="ORDER DETAILS"
+            android:textSize="15dp"
+            android:textStyle="bold" />
 
-    //Edit Text For Price
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tf_price"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginStart="@dimen/_6sdp"
-        android:layout_marginTop="@dimen/_190sdp"
-        android:layout_marginEnd="@dimen/_6sdp"
-        android:hint="Price"
-        android:textColorHint="@color/colorWhite"
-        app:endIconMode="clear_text"
-        app:endIconTint="@color/colorPrimary"
-        app:endIconTintMode="src_atop"
-        app:startIconDrawable="@drawable/ic_currency"
-        app:startIconTint="@color/colorPrimary">
-
-        <com.google.android.material.textfield.TextInputEditText
-            style="@style/FontBodyDarkGrey"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tv_fullname"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="text" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="180dp"
+            android:text="FULL NAME" />
 
-    //Edit Text For Stock
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tf_stock"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginStart="@dimen/_6sdp"
-        android:layout_marginTop="@dimen/_250sdp"
-        android:layout_marginEnd="@dimen/_6sdp"
-        android:hint="Stock"
-        android:textColorHint="@color/colorWhite"
-        app:endIconMode="clear_text"
-        app:endIconTint="@color/colorPrimary"
-        app:endIconTintMode="src_atop"
-        app:startIconDrawable="@drawable/ic_addstock"
-        app:startIconTint="@color/colorPrimary">
+        <EditText
+            android:id="@+id/et_nama"
+            android:layout_width="370dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="205dp"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingStart="12dp" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            style="@style/FontBodyDarkGrey"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tv_PRICE"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="280dp"
+            android:text="PRICE" />
+
+        <EditText
+            android:id="@+id/et_price"
+            android:layout_width="370dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="305dp"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:inputType="number"
+            android:paddingStart="12dp" />
+
+        <TextView
+            android:id="@+id/tv_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="380dp"
+            android:text="QUANTITY" />
+
+        <EditText
+            android:id="@+id/et_order"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="405dp"
+            android:background="@drawable/edittext_border"
+            android:ems="10"
+            android:inputType="number"
+            android:paddingStart="12dp" />
 
 
+        <TextView
+            android:id="@+id/tv_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="480dp"
+            android:text="UPLOAD IMAGE" />
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="510dp"
+            tools:src="@tools:sample/avatars" />
 
+    </RelativeLayout>
 
-
-
-
-
+    <Button
+        android:id="@+id/button"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="660dp"
+        android:text="KOCAK" />
 
 </RelativeLayout>
