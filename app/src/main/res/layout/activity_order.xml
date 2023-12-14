@@ -7,127 +7,155 @@
     android:layout_height="match_parent"
     tools:context=".view.OrderActivity">
 
-
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tv_orderforms"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="50dp"
-            android:fontFamily="@font/inter"
-            android:text="Checkout"
-            android:textSize="30dp"
-            android:textStyle="bold" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        //Divider
-        <View
-            android:id="@+id/divider_line"
-            android:layout_width="370dp"
-            android:layout_height="1dp"
-            android:layout_below="@id/tv_orderforms"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:background="@android:color/black" />
+            <TextView
+                android:id="@+id/tv_orderforms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/inter"
+                android:text="Checkout"
+                android:textSize="30dp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tv_orderdetails"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="120dp"
-            android:fontFamily="@font/inter"
-            android:text="ORDER DETAILS"
-            android:textSize="15dp"
-            android:textStyle="bold" />
+            //Divider
 
-        <TextView
-            android:id="@+id/tv_fullname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="180dp"
-            android:text="FULL NAME" />
+            <View
+                android:id="@+id/divider_line"
+                android:layout_width="370dp"
+                android:layout_height="1dp"
+                android:layout_below="@id/tv_orderforms"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/black" />
 
-        <EditText
-            android:id="@+id/et_nama"
-            android:layout_width="370dp"
-            android:layout_height="40dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="205dp"
-            android:background="@drawable/edittext_border"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:paddingStart="12dp" />
+            <TextView
+                android:id="@+id/tv_orderdetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="120dp"
+                android:fontFamily="@font/inter"
+                android:text="ORDER DETAILS"
+                android:textSize="15dp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tv_PRICE"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="280dp"
-            android:text="PRICE" />
+            <TextView
+                android:id="@+id/tv_fullname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="180dp"
+                android:text="FULL NAME" />
 
-        <EditText
-            android:id="@+id/et_price"
-            android:layout_width="370dp"
-            android:layout_height="40dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="305dp"
-            android:background="@drawable/edittext_border"
-            android:ems="10"
-            android:inputType="number"
-            android:paddingStart="12dp" />
+            <EditText
+                android:id="@+id/et_nama"
+                android:layout_width="370dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="205dp"
+                android:background="@drawable/edittext_border"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingStart="12dp" />
 
-        <TextView
-            android:id="@+id/tv_item"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="380dp"
-            android:text="QUANTITY" />
+            <TextView
+                android:id="@+id/tv_PRICE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="280dp"
+                android:text="PRICE" />
 
-        <EditText
-            android:id="@+id/et_order"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="405dp"
-            android:background="@drawable/edittext_border"
-            android:ems="10"
-            android:inputType="number"
-            android:paddingStart="12dp" />
+            <EditText
+                android:id="@+id/et_price"
+                android:layout_width="370dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="305dp"
+                android:background="@drawable/edittext_border"
+                android:ems="10"
+                android:inputType="number"
+                android:paddingStart="12dp" />
+
+            <TextView
+                android:id="@+id/tv_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="380dp"
+                android:text="QUANTITY" />
+
+            <TextView
+                android:id="@+id/tv_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="480dp"
+                android:text="DESC" />
 
 
-        <TextView
-            android:id="@+id/tv_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="480dp"
-            android:text="UPLOAD IMAGE" />
+            <EditText
+                android:id="@+id/et_order"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="405dp"
+                android:background="@drawable/edittext_border"
+                android:ems="10"
+                android:inputType="number"
+                android:paddingStart="12dp" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="510dp"
-            tools:src="@tools:sample/avatars" />
+            <EditText
+                android:id="@+id/et_desc"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="500dp"
+                android:background="@drawable/edittext_border"
+                android:ems="10"
+                android:inputType="number"
+                android:paddingStart="12dp"
+                android:layout_marginEnd="12dp"/>
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/tv_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="620dp"
+                android:text="UPLOAD IMAGE" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="660dp"
-        android:text="KOCAK" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="640dp"
+                tools:src="@tools:sample/avatars" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="780dp"
+                android:text="KOCAK" />
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
 
 </RelativeLayout>
