@@ -1,18 +1,29 @@
 package com.developer.rozan.goodsstock.view.home
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.developer.rozan.goodsstock.R
-import com.developer.rozan.goodsstock.model.Category
+import com.developer.rozan.goodsstock.data.api.RemoteService
+import com.developer.rozan.goodsstock.data.api.entity.BaseResponse
+import com.developer.rozan.goodsstock.data.local.entity.Category
+import com.developer.rozan.goodsstock.data.local.sharedpref.UserPref
+import com.developer.rozan.goodsstock.listener.RecyclerViewClickListener
+import com.developer.rozan.goodsstock.view.dashboard.DashboardActivity
+import com.developer.rozan.goodsstock.view.product.ProductActivity
+import org.json.JSONException
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), RecyclerViewClickListener {
 
     private lateinit var rvCategory : RecyclerView
+
+    private val remoteService = RemoteService()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,20 +37,32 @@ class HomeFragment : Fragment() {
 
         rvCategory = view.findViewById(R.id.rv_cetegory)
 
-        rvCategory.layoutManager = LinearLayoutManager(view.context)
+        val token = UserPref.init.getToken()
 
-        val data = ArrayList<Category>()
+        remoteService.getCategoryList("Token " + token, object : BaseResponse<List<Category>> {
+            override fun onSuccess(response: List<Category>) {
+                initRecyclerView(response)
+            }
 
-        // This loop will create 20 Views containing
-        // the image with the count of view
-        for (i in 1..4) {
-            data.add(Category(i, "Category $i", R.drawable.ic_add))
-        }
+            override fun onError(error: String) {
+                getDataCategoryGagal(error)
+            }
 
-        // This will pass the ArrayList to our Adapter
-        val adapter = HomeAdapter(data)
+        })
+    }
 
-        // Setting the Adapter with the recyclerview
+    private fun initRecyclerView(category: List<Category>) {
+        rvCategory.layoutManager = LinearLayoutManager(context)
+        val adapter = HomeAdapter(category)
+        adapter.listener = this
         rvCategory.adapter = adapter
+    }
+
+    private fun getDataCategoryGagal(e: String) {
+        Toast.makeText(activity, "Error : " + e, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onItemClicked(view: View, category: Category) {
+        startActivity(Intent(activity, ProductActivity::class.java))
     }
 }
