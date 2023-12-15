@@ -29,8 +29,8 @@
                 android:id="@+id/iv_product_category_image"
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="@dimen/_80sdp"
-                android:src="@drawable/ic_launcher_foreground"
-                app:tint="@color/colorBlack" />
+                android:scaleType="centerCrop"/>
+
 
             <TextView
                 android:id="@+id/tv_product_category_name"
