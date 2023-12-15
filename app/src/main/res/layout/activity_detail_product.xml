@@ -26,7 +26,7 @@
                 android:background="@color/colorGrey">
 
                 <ImageView
-                    android:id="@+id/specificProductImage"
+                    android:id="@+id/iv_detail_product_image"
                     android:layout_width="@dimen/_180sdp"
                     android:layout_height="@dimen/_180sdp"
                     android:layout_centerHorizontal="true"

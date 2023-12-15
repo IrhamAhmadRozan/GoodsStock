@@ -7,6 +7,7 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import androidx.lifecycle.lifecycleScope
 import com.example.goodstcok.R
+import com.example.goodstcok.data.local.sharedpref.UserPref
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -17,6 +18,8 @@ class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
+
+        UserPref.init = UserPref(this)
 
         image = findViewById(R.id.image)
 
@@ -29,6 +32,10 @@ class SplashScreenActivity : AppCompatActivity() {
     }
 
     private fun toNextActivity() {
-        startActivity(Intent(this, LoginActivity::class.java))
+        if (UserPref.init.isLogin()) {
+            startActivity(Intent(this, DashboardActivity::class.java))
+        } else {
+            startActivity(Intent(this, LoginActivity::class.java))
+        }
     }
 }

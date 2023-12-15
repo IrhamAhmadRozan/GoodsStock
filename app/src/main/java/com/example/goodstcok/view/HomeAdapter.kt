@@ -10,7 +10,7 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.goodstcok.R
 import com.example.goodstcok.data.local.entity.Category
-import com.example.goodstcok.listener.RecyclerViewClickListener
+import com.example.goodstcok.listener.*
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 
@@ -18,7 +18,7 @@ import com.squareup.picasso.Picasso
 class HomeAdapter(private val category: List<Category>) :
     RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
 
-    var listener: RecyclerViewClickListener? = null
+    var listener: OnCategoryClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -46,8 +46,6 @@ class HomeAdapter(private val category: List<Category>) :
                     Log.e("Picasso", "Error loading image", e)
                 }
             })
-
-
 
         holder.tvProductCategoryName.text = cat.name
 

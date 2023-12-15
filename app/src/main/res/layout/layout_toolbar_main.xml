@@ -7,7 +7,7 @@
     android:elevation="@dimen/_20sdp">
 
     <TextView
-        android:id="@+id/title_toolbar"
+        android:id="@+id/title_toolbar_main"
         style="@style/FontTitleWhiteBold"
         android:layout_width="0dp"
         android:layout_height="?attr/actionBarSize"
@@ -18,12 +18,12 @@
         android:paddingEnd="@dimen/_16sdp"
         android:text="Title"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/layout_action_bar"
+        app:layout_constraintEnd_toStartOf="@+id/layout_action_bar_main"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/layout_action_bar"
+        android:id="@+id/layout_action_bar_main"
         android:layout_width="wrap_content"
         android:layout_height="?attr/actionBarSize"
         android:gravity="center"
@@ -34,7 +34,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/layoutAction1"
+            android:id="@+id/layout_action1_main"
             android:layout_width="?attr/actionBarSize"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/selectableItemBackgroundBorderless"
@@ -42,7 +42,7 @@
             android:focusable="true">
 
             <ImageView
-                android:id="@+id/imgAction1"
+                android:id="@+id/img_action1_main"
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"
                 android:src="@drawable/ic_add"

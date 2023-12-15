@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -91,5 +92,8 @@ dependencies {
 
     // todo Picasso
     implementation 'com.squareup.picasso:picasso:2.8' // Use the latest version
+
+    // todo Shimer
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
 }

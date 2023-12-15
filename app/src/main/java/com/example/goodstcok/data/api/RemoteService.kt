@@ -41,6 +41,29 @@ class RemoteService {
         })
     }
 
+    fun logoutUser(token: String, callback: BaseResponse<String>) {
+        val call: Call<LoginResponse> = service.postLogout(token)
+
+        call.enqueue(object : Callback<LoginResponse> {
+            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                if (response.isSuccessful) {
+                    val token = response.body()?.key
+                    if (token != null) {
+                        callback.onSuccess(token)
+                    } else {
+                        callback.onError("Token is null")
+                    }
+                } else {
+                    callback.onError("Logout failed, logout not successfully")
+                }
+            }
+
+            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                callback.onError(t.message ?: "An error occurred")
+            }
+        })
+    }
+
     fun getCategoryList(token: String, callback: BaseResponse<List<Category>>) {
         val call = service.getCategoryProduct(token)
 
@@ -67,19 +90,31 @@ class RemoteService {
         })
     }
 
-    fun logoutUser(token: String, callback: BaseResponse<String>) {
-        val call: Call<LoginResponse> = service.postLogout(token)
+    fun getProductListByCategory(
+        token: String,
+        categoryId: Int,
+        callback: BaseResponse<List<Product>>
+    ) {
+        val call = service.getProductByCategory(token, categoryId)
 
-        call.enqueue(object: Callback<LoginResponse> {
-            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+        call.enqueue(object : Callback<List<Product>> {
+            override fun onResponse(
+                call: Call<List<Product>>,
+                response: Response<List<Product>>
+            ) {
                 if (response.isSuccessful) {
-                    callback.onSuccess("Logout Berhasil")
+                    val data = response.body()
+                    if (!data.isNullOrEmpty()) {
+                        callback.onSuccess(data)
+                    } else {
+                        callback.onError("Data Product is null")
+                    }
                 } else {
-                    callback.onError("Logout Gagal")
+                    callback.onError("Get Data Product failed, data product not received")
                 }
             }
 
-            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+            override fun onFailure(call: Call<List<Product>>, t: Throwable) {
                 callback.onError(t.message ?: "An error occurred")
             }
         })
