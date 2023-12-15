@@ -10,12 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.developer.rozan.goodsstock.R
 import com.developer.rozan.goodsstock.data.local.entity.Category
-import com.developer.rozan.goodsstock.listener.RecyclerViewClickListener
+import com.developer.rozan.goodsstock.listener.OnCategoryClickListener
 
 class HomeAdapter(private val category: List<Category>) :
     RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
 
-    var listener: RecyclerViewClickListener? = null
+    var listener: OnCategoryClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
