@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -57,6 +58,10 @@ class HomeFragment : Fragment(), OnCategoryClickListener {
         layoutActionBarMain.visible()
         layoutAction1Main.setOnClickListener {
             startActivity(Intent(requireContext(), AddCategoryActivity::class.java))
+        }
+
+        view.findViewById<ImageView>(R.id.img_action1_main).setOnClickListener {
+            startActivity(Intent(activity, AddCategoryActivity::class.java))
         }
 
         initFirst()

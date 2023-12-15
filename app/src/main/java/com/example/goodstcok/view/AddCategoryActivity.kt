@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.goodstcok.R
+import com.example.goodstcok.data.local.sharedpref.UserPref
 
 class AddCategoryActivity : AppCompatActivity() {
 
@@ -13,6 +14,9 @@ class AddCategoryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_category)
+
+        UserPref.init = UserPref(this)
+        UserPref.init.getToken()
 
         layoutBack = findViewById(R.id.layout_back)
         titleToolbarBack = findViewById(R.id.title_toolbar_back)
