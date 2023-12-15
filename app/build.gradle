@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.goodstcok"
@@ -76,17 +76,16 @@ dependencies {
     // Todo circleImageView
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
-<<<<<<< HEAD
+
     // todo retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.okhttp3:okhttp:4.9.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
 
-=======
     // todo Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
->>>>>>> 9da54d5bc52f309d7c6758844fba5d9ae3959acd
+
 }
