@@ -17,6 +17,7 @@ import com.developer.rozan.goodsstock.data.local.sharedpref.UserPref
 import com.developer.rozan.goodsstock.view.dashboard.DashboardActivity
 import com.developer.rozan.goodsstock.view.detail_profile.DetailProfileActivity
 import com.developer.rozan.goodsstock.view.login.LoginActivity
+import com.developer.rozan.goodsstock.view.splashscreen.SplashScreenActivity
 import org.json.JSONException
 
 class ProfileFragment : Fragment() {
@@ -64,7 +65,7 @@ class ProfileFragment : Fragment() {
         }
 
         clLogout.setOnClickListener {
-            //logoutAction()
+            logoutAction()
         }
     }
 
@@ -90,7 +91,7 @@ class ProfileFragment : Fragment() {
     private fun logoutBerhasil(token: String) {
         Toast.makeText(activity, "Berhasil Logout!", Toast.LENGTH_SHORT).show()
         UserPref.init.logout()
-        startActivity(Intent(activity, LoginActivity::class.java))
+        startActivity(Intent(activity, SplashScreenActivity::class.java))
     }
 
     private fun logoutGagal(e: JSONException) {

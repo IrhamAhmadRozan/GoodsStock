@@ -43,23 +43,18 @@ class RemoteService {
     }
 
     fun logoutUser(token: String, callback: BaseResponse<String>) {
-        val call: Call<LoginResponse> = service.postLogout(token)
+        val call: Call<LogoutResponse> = service.postLogout(token)
 
-        call.enqueue(object : Callback<LoginResponse> {
-            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+        call.enqueue(object : Callback<LogoutResponse> {
+            override fun onResponse(call: Call<LogoutResponse>, response: Response<LogoutResponse>) {
                 if (response.isSuccessful) {
-                    val token = response.body()?.key
-                    if (token != null) {
-                        callback.onSuccess(token)
-                    } else {
-                        callback.onError("Token is null")
-                    }
+                    callback.onSuccess(response.message())
                 } else {
                     callback.onError("Logout failed, logout not successfully")
                 }
             }
 
-            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+            override fun onFailure(call: Call<LogoutResponse>, t: Throwable) {
                 callback.onError(t.message ?: "An error occurred")
             }
         })

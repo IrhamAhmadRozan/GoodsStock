@@ -9,6 +9,7 @@ import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.Header
+import retrofit2.http.Headers
 import retrofit2.http.POST
 import retrofit2.http.Query
 
@@ -48,7 +49,7 @@ interface Service {
         @Field("quantity") quantity: Int
     ): Call<LogoutResponse>
 
-    @FormUrlEncoded
+    @Headers("Content-Type: application/json")
     @POST("/api/logout")
-    fun postLogout(@Header("Authorization") token: String): Call<LoginResponse>
+    fun postLogout(@Header("Authorization") token: String): Call<LogoutResponse>
 }
