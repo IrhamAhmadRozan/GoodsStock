@@ -70,6 +70,10 @@ fun String.convertToReadableDate(): String? {
     return SimpleDateFormat("EEEE dd MMMM yyyy, HH:mm", Locale("id", "ID")).format(date!!)
 }
 
+fun String.noSpaceDate(): String? {
+    return SimpleDateFormat("yyyyMMddHHmmss", Locale("id", "ID")).toString()
+}
+
 fun String.convertToReadableDateWithoutDayName(): String? {
     var date: Date? = null
     try {

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.add_product.AddProductActivity">
+    tools:context=".view.AddProductActivity">
 
     <include
         android:id="@+id/toolbar_back"
@@ -26,13 +26,51 @@
                 android:orientation="vertical"
                 android:padding="@dimen/_10sdp">
 
+                <RelativeLayout
+                    android:id="@+id/rl_take_photo"
+                    android:layout_width="@dimen/_105sdp"
+                    android:layout_height="@dimen/_105sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@drawable/ic_dash_line"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:id="@+id/iv_photo_result"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_camera" />
+
+                    <RelativeLayout
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_gravity="bottom|end"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:background="@drawable/circle_active"
+                        android:elevation="@dimen/_3sdp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:padding="@dimen/_7sdp"
+                            android:src="@drawable/ic_camera"
+                            android:tintMode="@color/colorWhite" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/tf_product_name"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_6sdp"
-                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
                     android:layout_marginEnd="@dimen/_6sdp"
                     android:hint="Product Name"
                     app:endIconMode="clear_text"
@@ -54,13 +92,16 @@
                     android:layout_marginStart="@dimen/_6sdp"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_6sdp"
-                    android:hint="Select Category">
+                    android:hint="Select Category"
+                    app:startIconDrawable="@drawable/ic_category"
+                    app:startIconTint="@color/colorPrimary">
 
                     <com.google.android.material.textfield.MaterialAutoCompleteTextView
                         android:id="@+id/spinner_category"
                         style="@style/FontBodyDarkGrey"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:inputType="none" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -119,14 +160,13 @@
                         style="@style/FontBodyDarkGrey"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="top"
                         android:inputType="textMultiLine"
                         android:lines="6"
-                        android:gravity="top"
                         android:overScrollMode="always"
-                        android:scrollbars="vertical"
                         android:scrollbarStyle="insideInset"
-                        android:scrollHorizontally="false"
-                        />
+                        android:scrollbars="vertical"
+                        android:scrollHorizontally="false" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 

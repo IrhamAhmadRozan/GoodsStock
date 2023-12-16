@@ -7,6 +7,10 @@
     android:layout_height="match_parent"
     tools:context=".view.OrderActivity">
 
+    <include
+        android:id="@+id/toolbar_back"
+        layout="@layout/layout_toolbar_back" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -20,13 +24,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="75dp"
                 android:fontFamily="@font/inter"
                 android:text="Checkout"
                 android:textSize="30dp"
                 android:textStyle="bold" />
-
-            //Divider
 
             <View
                 android:id="@+id/divider_line"
@@ -34,7 +36,7 @@
                 android:layout_height="1dp"
                 android:layout_below="@id/tv_orderforms"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:background="@android:color/black" />
 
             <TextView
@@ -42,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="120dp"
+                android:layout_marginTop="130dp"
                 android:fontFamily="@font/inter"
                 android:text="ORDER DETAILS"
                 android:textSize="15dp"

@@ -47,7 +47,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         tvLupaKataSandi.setOnClickListener {
-            Toast.makeText(this, "Fitur sedang dalam pengembangan.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Feature is under development.", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -75,7 +75,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loginGagal(e: JSONException) {
-        Toast.makeText(this, "Error : e.message", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Error : $e.message", Toast.LENGTH_SHORT).show()
     }
 
     private fun loginGagal(e: String) {
