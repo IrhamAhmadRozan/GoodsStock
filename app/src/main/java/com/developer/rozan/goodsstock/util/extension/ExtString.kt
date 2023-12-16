@@ -4,7 +4,8 @@ import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
 import java.text.ParseException
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Date
+import java.util.Locale
 import java.util.regex.Pattern
 
 fun String.isValidEmail(): Boolean {
@@ -68,6 +69,10 @@ fun String.convertToReadableDate(): String? {
         e.printStackTrace()
     }
     return SimpleDateFormat("EEEE dd MMMM yyyy, HH:mm", Locale("id", "ID")).format(date!!)
+}
+
+fun String.noSpaceDate(): String? {
+    return SimpleDateFormat("yyyyMMddHHmmss", Locale("id", "ID")).toString()
 }
 
 fun String.convertToReadableDateWithoutDayName(): String? {

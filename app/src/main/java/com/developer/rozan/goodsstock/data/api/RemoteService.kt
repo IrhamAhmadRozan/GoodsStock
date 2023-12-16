@@ -2,6 +2,7 @@ package com.developer.rozan.goodsstock.data.api
 
 import com.developer.rozan.goodsstock.data.api.entity.BaseResponse
 import com.developer.rozan.goodsstock.data.api.entity.response.LoginResponse
+import com.developer.rozan.goodsstock.data.api.entity.response.LogoutResponse
 import com.developer.rozan.goodsstock.data.local.entity.Category
 import com.developer.rozan.goodsstock.data.local.entity.Product
 import retrofit2.Call
@@ -77,7 +78,7 @@ class RemoteService {
                     if (!data.isNullOrEmpty()) {
                         callback.onSuccess(data)
                     } else {
-                        callback.onError("Data Category is null")
+                        callback.onError("There are no categories available yet")
                     }
                 } else {
                     callback.onError("Get Data Category failed, data category not received")
@@ -107,7 +108,7 @@ class RemoteService {
                     if (!data.isNullOrEmpty()) {
                         callback.onSuccess(data)
                     } else {
-                        callback.onError("Data Product is null")
+                        callback.onError("There are no products available yet")
                     }
                 } else {
                     callback.onError("Get Data Product failed, data product not received")
@@ -115,6 +116,48 @@ class RemoteService {
             }
 
             override fun onFailure(call: Call<List<Product>>, t: Throwable) {
+                callback.onError(t.message ?: "An error occurred")
+            }
+        })
+    }
+
+    fun uploadCategory(token: String, categoryName: String, callback: BaseResponse<String>) {
+        val call: Call<LogoutResponse> = service.uploadCategory(token, categoryName)
+
+        call.enqueue(object : Callback<LogoutResponse> {
+            override fun onResponse(
+                call: Call<LogoutResponse>,
+                response: Response<LogoutResponse>
+            ) {
+                if (response.isSuccessful) {
+                    callback.onSuccess(response.message())
+                } else {
+                    callback.onError("Add Category failed, category not added")
+                }
+            }
+
+            override fun onFailure(call: Call<LogoutResponse>, t: Throwable) {
+                callback.onError(t.message ?: "An error occurred")
+            }
+        })
+    }
+
+    fun uploadProduct(token: String, productName: String, productCategory: Int, productPrice: Int, productDescription : String, productQuantity : Int, callback: BaseResponse<String>) {
+        val call: Call<LogoutResponse> = service.uploadProduct(token, productName, productCategory, productPrice, productDescription, productQuantity)
+
+        call.enqueue(object : Callback<LogoutResponse> {
+            override fun onResponse(
+                call: Call<LogoutResponse>,
+                response: Response<LogoutResponse>
+            ) {
+                if (response.isSuccessful) {
+                    callback.onSuccess(response.message())
+                } else {
+                    callback.onError("Add Product failed, product not added")
+                }
+            }
+
+            override fun onFailure(call: Call<LogoutResponse>, t: Throwable) {
                 callback.onError(t.message ?: "An error occurred")
             }
         })

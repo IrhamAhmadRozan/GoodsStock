@@ -10,7 +10,7 @@ import android.view.inputmethod.InputMethodManager
 
 object Constant {
 
-    const val DELAY_INTENT: Long = 500L
+    const val DELAY_INTENT: Long = 300L
     const val DELAY_LOAD_MORE: Long = 300L
 
     const val IS_FRAGMENT_HIDDEN = "isFragmentHidden"

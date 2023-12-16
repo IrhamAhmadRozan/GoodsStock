@@ -33,18 +33,19 @@ interface Service {
     @FormUrlEncoded
     @POST("/goods/add-category")
     fun uploadCategory(
-        @Header("X-CSRFToken") csrf: String,
+        @Header("Authorization") token: String,
         @Field("name") name: String
     ): Call<LogoutResponse>
 
     @FormUrlEncoded
     @POST("/goods/add-product")
     fun uploadProduct(
-        @Header("X-CSRFToken") csrf: String,
+        @Header("Authorization") token: String,
         @Field("name") username: String,
+        @Field("category") category: Int,
         @Field("price") price: Int,
-        @Field("quantity") quantity: Int,
-        @Field("description") decription: String
+        @Field("description") decription: String,
+        @Field("quantity") quantity: Int
     ): Call<LogoutResponse>
 
     @FormUrlEncoded
