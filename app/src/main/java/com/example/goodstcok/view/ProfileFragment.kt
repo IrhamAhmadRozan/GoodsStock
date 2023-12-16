@@ -62,13 +62,11 @@ class ProfileFragment : Fragment() {
         }
 
         clLogout.setOnClickListener {
-            //logoutAction()
+            logoutAction(UserPref.init.getToken())
         }
     }
 
-    private fun logoutAction() {
-        val token = UserPref.init.getToken()
-
+    private fun logoutAction(token: String) {
         remoteService.logoutUser("Token $token", object : BaseResponse<String> {
             override fun onSuccess(response: String) {
                 try {
@@ -87,7 +85,7 @@ class ProfileFragment : Fragment() {
     private fun logoutBerhasil(token: String) {
         Toast.makeText(activity, "Berhasil Logout!", Toast.LENGTH_SHORT).show()
         UserPref.init.logout()
-        startActivity(Intent(activity, LoginActivity::class.java))
+        startActivity(Intent(activity, SplashScreenActivity::class.java))
     }
 
     private fun logoutGagal(e: JSONException) {

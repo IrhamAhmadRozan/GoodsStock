@@ -41,7 +41,7 @@ interface Service {
         @Field("quantity") quantity: Int
     ): Call<LogoutResponse>
 
-    @FormUrlEncoded
+    @Headers("Content-Type: application/json") 
     @POST("/api/logout")
-    fun postLogout(@Header("Authorization") token: String): Call<LoginResponse>
+    fun postLogout(@Header("Authorization") token: String): Call<LogoutResponse>
 }

@@ -18,10 +18,13 @@
         android:theme="@style/Base.Theme.GoodsStock"
         tools:targetApi="31">
         <activity
-            android:name=".DetailProfileActivity"
+            android:name=".view.DetailProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".AddCategoryActivity"
+            android:name=".view.AddProductActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.AddCategoryActivity"
             android:exported="false" />
         <activity
             android:name=".view.OrderActivity"
@@ -36,13 +39,13 @@
             android:name=".view.DashboardActivity"
             android:exported="false" />
         <activity
-            android:name=".view.SplashScreenActivity"
+            android:name=".view.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".view.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".view.LoginActivity"
+            android:name=".view.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

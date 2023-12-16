@@ -1,5 +1,7 @@
 package com.example.goodstcok.data.api
 
+import android.util.Log
+import android.widget.Toast
 import com.example.goodstcok.data.api.entity.BaseResponse
 import com.example.goodstcok.data.api.entity.response.LoginResponse
 import com.example.goodstcok.data.api.entity.response.LogoutResponse
@@ -42,12 +44,12 @@ class RemoteService {
     }
 
     fun logoutUser(token: String, callback: BaseResponse<String>) {
-        val call: Call<LoginResponse> = service.postLogout(token)
+        val call: Call<LogoutResponse> = service.postLogout(token)
 
-        call.enqueue(object : Callback<LoginResponse> {
-            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+        call.enqueue(object : Callback<LogoutResponse> {
+            override fun onResponse(call: Call<LogoutResponse>, response: Response<LogoutResponse>) {
                 if (response.isSuccessful) {
-                    val token = response.body()?.key
+                    val token = response.body()?.msg
                     if (token != null) {
                         callback.onSuccess(token)
                     } else {
@@ -58,7 +60,7 @@ class RemoteService {
                 }
             }
 
-            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+            override fun onFailure(call: Call<LogoutResponse>, t: Throwable) {
                 callback.onError(t.message ?: "An error occurred")
             }
         })
